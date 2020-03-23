@@ -1,0 +1,13 @@
+version: '3'
+services:
+  converter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./in:/mnt/in
+      - ./out:/mnt/out
+    environment:
+      - INDIR=/mnt/in
+      - OUTDIR=/mnt/out
+    command: [./convert.sh]
